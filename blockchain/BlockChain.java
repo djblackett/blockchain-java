@@ -52,7 +52,7 @@ public class BlockChain {
         String numberOfZeroes = "0".repeat(N.get());
 
 
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
 
         String hash = StringUtil.applySha256(newBlock.toString());
 //        System.out.println(hash);
@@ -64,9 +64,9 @@ public class BlockChain {
         }
         newBlock.setHash(hash);
 
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         long elapsedTime = endTime - startTime;
-        long timeInSeconds = elapsedTime / 1000;
+        long timeInSeconds = elapsedTime / 1000000;
         newBlock.setCreationTime(timeInSeconds);
         newBlock.setTimeStamp(new Date().getTime());
         newBlock.setMiner(minerName);
@@ -93,7 +93,8 @@ public class BlockChain {
                     N.decrementAndGet();
                 }
 
-                newBlock.printBlock();
+//                newBlock.printBlock();
+                notifyAll();
                 return true;
             }
         }

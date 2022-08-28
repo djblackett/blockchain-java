@@ -32,17 +32,17 @@ public class Main {
         }
 
 
-//
-//        while (blockChain.blockChain.size() < 15) {
-//            Thread.sleep(500);
-////            System.out.println("Waiting...");
-//        }
-//
-//        for (int i = 0; i < 15; i++) {
-//            blockChain.blockChain.get(i).printBlock();
-//        }
 
-//        System.exit(0);
+        while (blockChain.blockChain.size() < 15) {
+            Thread.sleep(50);
+//            System.out.println("Waiting...");
+        }
+
+        for (int i = 0; i < 15; i++) {
+            blockChain.blockChain.get(i).printBlock();
+        }
+
+        System.exit(0);
     }
 
 
